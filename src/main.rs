@@ -26,7 +26,6 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
-            .wrap(Logger::default())
             .data(connect())
             .service(web::resource("/").route(web::get().to(handlers::users::get)))
     })
